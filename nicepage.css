@@ -37504,6 +37504,11 @@ a.u-button-style.u-button-style.active > .u-text-active-palette-3-base[class*="u
 .u-popupmenu-items.u-text-hover-palette-3-base .u-nav-link:hover,
 .u-popupmenu-items.u-popupmenu-items.u-text-active-palette-3-base .u-nav-link.active {
   color: #91c4bc !important;
+  font-family: 'Playfair Display', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+  font-size: 18px;
 }
 .u-text-palette-3-base .u-svg-link,
 .u-text-hover-palette-3-base:hover .u-svg-link,
@@ -43187,6 +43192,16 @@ a.u-link.u-text-hover-grey-90:hover {
     margin-right: 9px;
   }
 }
+
+a#typewrite{
+  padding-left: 0.25em;
+}
+
+
+.u-custom-menu.u-nav-container {
+  margin-top: -0.22em;
+}
+
 
  /*begin-variables base-font-size*/ 
  html { font-size: 16px; }

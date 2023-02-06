@@ -64,6 +64,8 @@
 
 .u-section-1 .u-container-layout-2 {
   padding: 0 60px 30px;
+  display: flex;
+  align-items: center;
 }
 
 .u-section-1 .u-group-1 {
@@ -857,3 +859,5 @@
   font-weight: 400;
   src: url(fonts/KonnectLight.otf);
 }
+
+

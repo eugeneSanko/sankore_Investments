@@ -16,7 +16,69 @@
     
     
     
-    
+     
+    <script type="text/javascript" >
+
+      var TxtType = function(el, toRotate, period) {
+              this.toRotate = toRotate;
+              this.el = el;
+              this.loopNum = 0;
+              this.period = parseInt(period, 10) || 2000;
+              this.txt = '';
+              this.tick();
+              this.isDeleting = false;
+          };
+      
+          TxtType.prototype.tick = function() {
+              var i = this.loopNum % this.toRotate.length;
+              var fullTxt = this.toRotate[i];
+      
+              if (this.isDeleting) {
+              this.txt = fullTxt.substring(0, this.txt.length - 1);
+              } else {
+              this.txt = fullTxt.substring(0, this.txt.length + 1);
+              }
+      
+              this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+      
+              var that = this;
+              var delta = 200 - Math.random() * 100;
+      
+              if (this.isDeleting) { delta /= 2; }
+      
+              if (!this.isDeleting && this.txt === fullTxt) {
+              delta = this.period;
+              this.isDeleting = true;
+              } else if (this.isDeleting && this.txt === '') {
+              this.isDeleting = false;
+              this.loopNum++;
+              delta = 500;
+              }
+      
+              setTimeout(function() {
+              that.tick();
+              }, delta);
+          };
+      
+          window.onload = function() {
+              var elements = document.getElementsByClassName('typewrite');
+              for (var i=0; i<elements.length; i++) {
+                  var toRotate = elements[i].getAttribute('data-type');
+                  var period = elements[i].getAttribute('data-period');
+                  if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                  }
+              }
+              // INJECT CSS
+              var css = document.createElement("style");
+              css.type = "text/css";
+              css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+              document.body.appendChild(css);
+          };
+      
+      </script>
+          
+          
     
     
     
@@ -164,7 +226,8 @@
                   <div class="u-container-align-center u-container-style u-group u-preserve-proportions u-shape-rectangle u-group-2">
                     <div class="u-container-layout u-valign-bottom u-container-layout-3">
                       <h2 class="u-custom-font u-font-playfair-display u-subtitle u-text u-text-default u-text-palette-2-base u-text-1">Our Investment Strategy</h2>
-                      <h2 class="u-subtitle u-text u-text-body-alt-color u-text-default u-text-2">Investing in Cities</h2>
+                      <h2 class="u-subtitle u-text u-text-body-alt-color u-text-default u-text-2">Investing in C<a href="" class="typewrite" data-period="2000" data-type='[ "redit", "apital", "ities", "ommunities", "ulture"  ]'>
+                      </a></h2>
                     </div>
                   </div>
                 </div>
@@ -352,8 +415,9 @@
                 <div class="u-container-layout u-valign-bottom u-container-layout-22">
                   <div class="u-container-align-center u-container-style u-group u-preserve-proportions u-shape-rectangle u-group-8">
                     <div class="u-container-layout u-valign-bottom u-container-layout-23">
-                      <h2 class="u-custom-font u-font-playfair-display u-subtitle u-text u-text-default u-text-palette-2-base u-text-22">What is wealth to you?</h2>
-                      <h2 class="u-subtitle u-text u-text-body-alt-color u-text-default u-text-23">Wealth is Time</h2>
+                      <h2 class="u-custom-font u-font-playfair-display u-subtitle u-text u-text-default u-text-palette-2-base u-text-22">What is Wealth to you?</h2>
+                      <h2 class="u-subtitle u-text u-text-body-alt-color u-text-default u-text-23">Wealth is<a href="" class="typewrite" id="typewrite" data-period="2000" data-type='[ "Timeless", "Class", "Health", "Courage" ]'>
+                      </a></h2>
                     </div>
                   </div>
                 </div>
@@ -371,7 +435,7 @@
                                   <div class="u-container-layout u-container-layout-25">
                                     <h2 class="u-align-left u-custom-font u-subtitle u-text u-text-body-alt-color u-text-default u-text-24">Our<br>Big<br>Idea
                                     </h2>
-                                    <h2 class="u-subtitle u-text u-text-body-alt-color u-text-25"> Providing long-term investment strategy that can help you build wealth over time and achieve financial stability and security, by diversfying portfolios across a variety of asset classes.</h2>
+                                    <h2 class="u-subtitle u-text u-text-body-alt-color u-text-25"> Providing a long-term investment strategy that can help you build wealth over time and achieve financial stability and security, by diversifying portfolios across a variety of asset classes.</h2>
                                   </div>
                                 </div>
                                 <p class="u-large-text u-text u-text-body-color u-text-variant u-text-26"> We are aware that creating wealth over time necessitates a long-term investment plan that is customized to your unique objectives, risk tolerance, and time horizon. We provide specialized investment solutions to help you diversify and expand your investment portfolio by comprehending the investing personas of our clients,&nbsp;<br>

@@ -15,9 +15,45 @@
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i|DM+Sans:400,400i,500,500i,700,700i">
     
     
+    <script type="module">
+      import createGlobe from 'https://cdn.skypack.dev/cobe'
     
+      let phi = 0
+      let canvas = document.getElementById("cobe")
     
-    
+      const globe = createGlobe(canvas, {
+        devicePixelRatio: 2,
+        width: 1000,
+        height: 1000,
+        phi: 0,
+        theta: 0,
+        dark: 1,
+        diffuse:  0.1,
+        mapSamples : 12500,
+        mapBrightness:  9,
+        mapBaseBrightness : 0.3,
+        offset: [0, 0],
+        baseColor: [0.03, 0.11, 0.3],
+        markerColor: [0.77, 0.77, 0.58],
+        glowColor: [0.05, 0.11, 0.24],
+        scale : 0.9,
+        offsetX : 0.00 ,
+        offsetY : 0.00 ,
+        opacity : 0.65 ,
+        markers: [
+        { location: [6.5244, 3.3792], size: 0.1 },
+        { location: [9.0765, 7.3986], size: 0.04 },
+        { location: [4.8472, 6.9746], size: 0.04 },
+         { location: [20.3484, 57.5522], size: 0.04 },
+         { location: [55.3781, 3.4360], size: 0.07 },
+       { location: [37.0902, 95.7129], size: 0.097 }
+        ],
+        onRender: (state) => {
+          state.phi = phi
+          phi += 0.01
+        },
+      })
+    </script>
     
     
     
@@ -154,12 +190,19 @@
                     <h2 class="u-custom-font u-font-playfair-display u-text u-text-default u-text-palette-2-base u-text-2">Global</h2>
                     <h2 class="u-custom-font u-text u-text-3"> to serve you better</h2>
                   </div>
-                  <p class="u-align-left-md u-align-left-sm u-align-left-xs u-custom-font u-text u-text-4">We have a bigger ambition to not just position as the leading investment company in Africa, but to reach out globally to bring the opportunities offshore to Africa.</p>
+                  <p class="u-align-left-md u-align-left-sm u-align-left-xs u-custom-font u-text u-text-4">We have a bigger ambition to not just position ourselves as the leading investment company in Africa, but to reach out globally and bring the opportunities offshore to Africa.</p>
                   <a href="" class="u-active-none u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-btn-1">learn more</a>
                 </div>
               </div>
-              <div class="u-align-center u-container-align-left u-container-style u-image u-image-contain u-layout-cell u-right-cell u-size-30 u-size-xs-60 lazyload u-image-1" src="" data-image-width="546" data-image-height="531" data-bg="url(&quot;/images/GLOBEX1.webp&quot;)">
-                <div class="u-container-layout u-valign-middle u-container-layout-2" src=""></div>
+              <div class="u-align-center u-container-align-left u-container-style u-image u-image-contain u-layout-cell u-right-cell u-size-30 u-size-xs-60 lazyload u-image-1" src="" data-image-width="546" data-image-height="531" data-bg="#">
+                <div class="u-container-layout u-valign-middle u-container-layout-2" src="">
+                  <canvas
+                  id="cobe"
+                  style="width: 500px; height: 500px"
+                  width="1000"
+                  height="1000"
+                ></canvas>
+                </div>
               </div>
             </div>
           </div>
@@ -213,7 +256,7 @@
                 <p class="u-custom-font u-text u-text-body-color u-text-4"><span class="u-file-icon u-icon u-text-palette-2-base u-icon-2"><img src="/images/684908-1e76445c.png" alt=""></span>&nbsp;ABUJA
                 </p>
                 <p class="u-custom-font u-large-text u-text u-text-body-color u-text-variant u-text-5">Satellite Office</p>
-                <p class="u-text u-text-body-color u-text-6">8 Lake Chad Crescent Maitama Abuja</p>
+                <p class="u-text u-text-body-color u-text-6">8 Lake Chad Crescent, Maitama, Abuja.</p>
               </div>
             </div>
             <div class="u-align-left u-container-align-center u-container-style u-grey-5 u-list-item u-radius-8 u-repeater-item u-shape-round u-video-cover u-list-item-3">
