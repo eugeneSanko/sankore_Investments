@@ -20106,7 +20106,7 @@ a.pswp__share--download:hover {
 .u-back-image {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain ; 
   object-position: center;
 }
 .u-show-text-none .u-over-slide {
@@ -42041,6 +42041,7 @@ a.u-link.u-text-hover-grey-90:hover {
 .u-header .u-nav-1 {
   font-family: KonnectRegular;
   font-size: 1rem;
+  top: 0.18rem;
 }
 
 .u-header .u-nav-2 {
